@@ -1,1 +1,3 @@
 # nao-robo-leader
+## The 2016-2017 CSUN Senior Design Project NAO Robo Leader allows the user to control and extend the basic funtionalities of the NAO Robot.
+We, the NAO Robo Leader team, are developing an autonomous robot companion which will be able to manage multiple vehicles and relay information back to the user. Currently, we are trying to extend the basic functionalities of the NAO Robot with the open-source ROS packages. Our team is mainly focused on creating a functional GUI for the user to be able to coordinate with the NAO Robot. Ultimately NAO Robo Leader is about creating a robot companion who can carry out tasks and effectively work without a conductor.
