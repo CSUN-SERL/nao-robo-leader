@@ -1,0 +1,2 @@
+nao-robo-leader:nao_roboleader
+-DCATKIN_DEVEL_PREFIX=/home/yul/Documents/nao-robo-leader/devel -DCMAKE_INSTALL_PREFIX=/home/yul/Documents/nao-robo-leader/install -G Unix Makefiles
