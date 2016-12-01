@@ -1,8 +1,0 @@
-prefix=/home/yul/Documents/nao-robo-leader/devel
-
-Name: nao_roboleader
-Description: Description of nao_roboleader
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/yul/Documents/nao-robo-leader/devel/lib 
-Requires: 
