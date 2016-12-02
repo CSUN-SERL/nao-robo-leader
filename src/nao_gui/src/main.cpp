@@ -17,7 +17,10 @@ int main(int argc, char *argv[]) {
     
     
 
-    // create and show your widgets here
+    // create and show your widgets 
+    
+    ros::init(argc, argv, "NAO_GUI");
+    
     NaoMainWindow m;
     m.show();
     return app.exec();
