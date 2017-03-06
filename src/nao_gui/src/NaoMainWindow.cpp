@@ -10,6 +10,7 @@
 #include <geometry_msgs/Twist.h>
 #include <string>
 #include <std_msgs/String.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -32,6 +33,8 @@ NaoMainWindow::NaoMainWindow():
             this, &NaoMainWindow::OnLeftClick);
     connect(widget.lineEdit, &QLineEdit::returnPressed, 
             this, &NaoMainWindow::EnteredTxt);
+    connect(widget.distanceEdit, &QLineEdit::returnPressed,
+            this, &NaoMainWindow::EnteredDistance);
     widget.upBtn->setAutoRepeat(true);
     widget.downBtn->setAutoRepeat(true);
     widget.rightBtn->setAutoRepeat(true);
@@ -91,6 +94,16 @@ void NaoMainWindow::OnRightClick()
 {
     angular=-1;
     this->TranslateAndPublish();
+}
+void NaoMainWindow::EnteredDistance()//changes distance of x value
+{
+    std_msgs::String msg;
+    QString input;
+    input=widget.distanceEdit ->QLineEdit::text();
+    double meter=input.toDouble();
+    linear=meter;
+    
+    
 }
 
 

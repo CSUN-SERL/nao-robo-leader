@@ -23,6 +23,7 @@ public slots:
     void OnDownClick();
     void OnRightClick();
     void OnLeftClick();
+    void EnteredDistance();
         
 private:
     Ui::NaoMainWindow widget;
