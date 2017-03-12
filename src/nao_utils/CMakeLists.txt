@@ -122,7 +122,11 @@ add_dependencies(nao_teleop_key nao_robo_leader_generate_message_cpp)
 
 add_executable(nao_talk src/nao_talk.cpp)
 target_link_libraries(nao_talk ${catkin_LIBRARIES})
-add_dependencies(nao_talk nao_robo_leader_generate_message_cpp) 
+add_dependencies(nao_talk nao_robo_leader_generate_message_cpp)
+
+add_executable(nao_speech_response src/nao_speech_response)
+target_link_libraries(nao_speech_response ${catkin_LIBRARIES})
+add_dependencies(nao_speech_response nao_roboleader_generate_message_cpp)
 ## Declare a C++ library
 # add_library(nao-robo-leader
 #   src/${PROJECT_NAME}/nao-robo-leader.cpp
