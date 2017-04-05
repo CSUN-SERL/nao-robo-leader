@@ -21,6 +21,8 @@ class nao_talk
         * If an exit() command is printed, then the node is closed.
         */
         void process_command();
+	
+	void speak(std::string tts);
         /*
 		If this exit() is called in terminal then it will kill the process
 	*/

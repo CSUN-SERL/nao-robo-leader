@@ -43,6 +43,11 @@ void nao_talk::process_command()
     }
 }
 
+void nao_talk::speak(string tts){
+	std_msgs::String msg;
+	msg.data = tts;
+	speech.publish(msg);
+}
 bool nao_talk::exit()
 {
   // just return the flag

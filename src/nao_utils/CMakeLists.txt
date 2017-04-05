@@ -127,6 +127,22 @@ add_dependencies(nao_talk nao_robo_leader_generate_message_cpp)
 add_executable(nao_speech_response src/nao_speech_response)
 target_link_libraries(nao_speech_response ${catkin_LIBRARIES})
 add_dependencies(nao_speech_response nao_roboleader_generate_message_cpp)
+
+#add_executable(nao_start_recognition_server src/nao_start_recognition_server)
+#target_link_libraries(nao_start_recognition_server ${catkin_LIBRARIES})
+#add_dependencies(nao_start_recognition_server nao_robo_leader_generate_message_cpp)
+
+#add_executable(nao_start_recognition_client src/nao_start_recognition_client)
+#target_link_libraries(nao_start_recognition_client ${catkin_LIBRARIES})
+#add_dependencies(nao_start_recognition_client nao_robo_leader_generate_message_cpp)
+
+add_executable(nao_events_response src/nao_events_response)
+target_link_libraries(nao_events_response ${catkin_LIBRARIES})
+add_dependencies(nao_events_response nao_robo_leader_generate_message_cpp)
+
+add_executable(nao_events_publisher src/nao_events_publisher)
+target_link_libraries(nao_events_publisher ${catkin_LIBRARIES})
+add_dependencies(nao_events_publisher nao_roboleader_generate_message_cpp)
 ## Declare a C++ library
 # add_library(nao-robo-leader
 #   src/${PROJECT_NAME}/nao-robo-leader.cpp
