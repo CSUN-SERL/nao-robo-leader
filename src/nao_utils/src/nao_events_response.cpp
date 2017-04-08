@@ -1,8 +1,10 @@
 #include <iostream>
+#include <jsoncpp/json/json.h>
+#include <fstream>
 #include "nao_talk.hpp"
 #include <ros/ros.h>
 #include <std_msgs/String.h>
-#include <std_msgs/Float32.h>
+#include <std_msgs/Float64.h>
 #include <stdio.h>
 #include <string>
 
@@ -15,9 +17,17 @@ class nao_events_response{
 			get_event = nodeH.subscribe("vehicleEvent", 1, &nao_events_response::process_event, this);		
 		}
 		void process_event(const std_msgs::String::ConstPtr& msg){
+			//ostringstream ss;
+			//ss << msg->data;
+			//string battery(ss.str());
 			ROS_INFO("I heard [%s]", msg->data.c_str());
+			string battery = msg->data.c_str();
+			int index = battery.find("battery_Percentage") + 20;
+			string str2 = battery.substr(index-20);
+			int index2 = str2.find(" ");
+			cout << str2.substr(0, index2) << endl;
 			std_msgs::String mes;
-			mes.data = msg->data.c_str();
+			mes.data = "Husky have " + msg->data + "% battery life left";
 			speech.publish(mes);
 		}
 	private:
@@ -28,8 +38,7 @@ class nao_events_response{
 	/*
 		nao responds given a unique event
 		for instance,
-		husky sends GCS battery life, GCS sends
-		info to nao and nao gives response based on event	
+		husky sends battery life, to nao and nao gives response based on event	
 	*/
 };	
 
