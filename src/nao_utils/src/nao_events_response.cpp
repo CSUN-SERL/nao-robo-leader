@@ -14,7 +14,7 @@ class nao_events_response{
 	public:
 		nao_events_response(){
 			speech = nodeH.advertise<std_msgs::String>("/speech", 1);
-			get_event = nodeH.subscribe("penis", 1, &nao_events_response::process_event, this);		
+			get_event = nodeH.subscribe("vehicle_events", 1, &nao_events_response::process_event, this);		
 		}
 		void process_event(const std_msgs::String::ConstPtr& msg){
 			//ostringstream ss;
@@ -23,15 +23,25 @@ class nao_events_response{
 			ROS_INFO("I heard [%s]", msg->data.c_str());
 			string battery = msg->data.c_str();
 			int index = battery.find("battery_Percentage");
+			int index2 = battery.find("mission_Status");			
 			//string str2 = battery.substr(index-20);
 			//int index2 = str2.find(" ");
-			cout << index << endl;
+			//cout << index << endl;
 			//cout << battery.substr(index, 18) << endl;
 			string battery_percentage = battery.substr(index+20, 4);
-			//cout << battery_percentage << endl;
+			string mission = battery.substr(index2+16, 1);
+			string mission_status = "";
+			
+			if(mission == "0"){
+				mission_status = "Mission status incomplete";
+			}else{
+				mission_status = "Mission status complete";
+			}
+			//cout << mission << "its works" << endl;
 			std_msgs::String mes;
-			mes.data = "Husky is at " + battery_percentage + "% battery";
+			mes.data = "Husky is at " + battery_percentage + "% battery. " + mission + " " + mission_status;
 			speech.publish(mes);
+			
 		}
 	private:
 		ros::NodeHandle nodeH;
