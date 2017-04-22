@@ -39,7 +39,7 @@ class nao_events_response{
 			}
 			//cout << mission << "its works" << endl;
 			std_msgs::String mes;
-			mes.data = "Husky is at " + battery_percentage + "% battery. " + mission + " " + mission_status;
+			mes.data = "Husky is at " + battery_percentage + "% battery. " + " " + mission_status;
 			speech.publish(mes);
 			
 		}
