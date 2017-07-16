@@ -1,5 +1,5 @@
+#include "nao_talk.h"
 #include <iostream>
-#include "nao_talk.hpp"
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <std_msgs/Float32.h>
